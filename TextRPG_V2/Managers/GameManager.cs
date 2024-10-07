@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,13 +10,24 @@ namespace TextRPG_V2
 {
     public class GameManager
     {
+        // ---- singleton for easy access ----
+        private static GameManager instance;
+        public static GameManager Instance => instance ?? (instance = new GameManager());
+
+
         Map map; //The map on which the game takes place
         UIManager uiManager; //The Object that manages UI elements (Camera, action log, controls, etc...) 
         EntityManager entityManager; //The object that managed entities
         ItemManager itemManager; //object that manages items
 
+
+        private Shop shop;
+        private List<Quest> quests;
+
         private bool gameWin; //bool tracking if the game was won
         private bool gameLose; //bool tracking if the game was lost
+
+
 
         /// <summary>
         /// Constructor method for a GameManager object
@@ -24,6 +36,8 @@ namespace TextRPG_V2
         {
             gameLose = false;
             gameWin = false;
+            shop = new Shop();
+            quests = new List<Quest>();
         }
 
         /// <summary>

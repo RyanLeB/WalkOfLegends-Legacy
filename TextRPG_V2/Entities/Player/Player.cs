@@ -9,7 +9,12 @@ namespace TextRPG_V2
 {
     public class Player : Entity
     {
-        
+
+
+        public int gold;
+        private List<Item> inventory;
+
+
         /// <summary>
         /// Empty constructor for a "Player" class entity.
         /// </summary>
@@ -27,8 +32,24 @@ namespace TextRPG_V2
             base.spd = new Stat(10);
             base.skl = new Stat(10);
             base.luc = new Stat(10);
+            gold = 100;
+            inventory = new List<Item>();
 
         }
+
+
+        // ---- Adds Item to inventory ----
+        public void AddItem(Item item)
+        {
+            inventory.Add(item);
+        }
+
+        // ---- Removes Item from inventory ----
+        public void RemoveItem(Item item)
+        {
+            inventory.Remove(item);
+        }
+
 
         /// <summary>
         /// Method to read player input to determine player actions
@@ -91,6 +112,17 @@ namespace TextRPG_V2
                         System.Environment.Exit(0);
                         break;
 
+                    // ---- Enter shop ----
+                    case ConsoleKey.B:
+                        uiManager.DisplayShop(GameManager.Instance.GetShop());
+                        gotInput = true;
+                        break;
+
+                    // ---- Check quests ----
+                    case ConsoleKey.Q:
+                        uiManager.DisplayQuests(GameManager.Instance.GetQuests());
+                        gotInput = true;
+                        break;
                     default: break;
                 }
             }
