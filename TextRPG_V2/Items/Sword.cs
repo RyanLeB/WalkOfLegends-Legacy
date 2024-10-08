@@ -14,7 +14,7 @@ namespace TextRPG_V2.Items
         /// <summary>
         /// Empty constructor method for a "Swords" Item.
         /// </summary>
-        public Sword() : base("Sword") 
+        public Sword() : base("Sword", 50) 
         {
             atkIncrease = GlobalVariables.swordAtkIncrease;
             SetSymbol('s');

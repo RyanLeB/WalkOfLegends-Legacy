@@ -11,7 +11,7 @@ namespace TextRPG_V2
         /// <summary>
         /// Constructor method for a "Boots of Speed" Item.
         /// </summary>
-        public BootsOfSpeed() : base("Boots of Speed")
+        public BootsOfSpeed() : base("Boots of Speed",100)
         {
             SetSymbol('b');
             SetColor(ConsoleColor.DarkCyan);

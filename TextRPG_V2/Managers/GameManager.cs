@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextRPG_V2.Items;
+using TextRPG_V2.Shop_Quests;
 
 namespace TextRPG_V2
 {
@@ -56,7 +58,11 @@ namespace TextRPG_V2
             map = new Map(path, entityManager, itemManager);
 
             //initializing UI
-            uiManager = new UIManager(entityManager);
+            uiManager = new UIManager(entityManager, quests);
+
+            // Initialize shop and quests
+            InitializeShop();
+            InitializeQuests();
 
             //title screen
             TitleScreen();
@@ -71,6 +77,46 @@ namespace TextRPG_V2
         /// <summary>
         /// Method that starts the game loop of the game
         /// </summary>
+
+        private void InitializeShop()
+        {
+            shop.AddItem(new HealingPotion());
+            shop.AddItem(new Sword());
+        }
+
+        private void InitializeQuests()
+        {
+            quests.Add(new Quest("Escape the Dungeon", "Find the exit to escape the dungeon."));
+            uiManager.UpdateQuestWindow(quests);
+        }
+
+        public Shop GetShop()
+        {
+            return shop;
+        }
+
+        public List<Quest> GetQuests()
+        {
+            return quests;
+        }
+
+        public void EnterShop()
+        {
+            shop.DisplayInventory();
+            // Add logic for buying/selling items
+        }
+
+        public void CheckQuests()
+        {
+            foreach (var quest in quests)
+            {
+                if (!quest.IsCompleted)
+                {
+                    Console.WriteLine($"Quest: {quest.Name} - {quest.Description}");
+                }
+            }
+        }
+
         public void GameLoop()
         {
             //game loop

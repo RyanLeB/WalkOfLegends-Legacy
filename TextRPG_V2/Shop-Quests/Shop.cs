@@ -27,15 +27,15 @@ namespace TextRPG_V2
             Console.WriteLine("Shop Inventory:");
             foreach (var item in inventory)
             {
-                Console.WriteLine(item.GetName());
+                Console.WriteLine($"{item.GetName()} - {item.GetPrice()} gold");
             }
         }
 
         public void BuyItem(Item item, Player player)
         {
-            if (player.gold >= item.Price)
+            if (player.gold >= item.GetPrice())
             {
-                player.gold -= item.Price;
+                player.gold -= item.GetPrice();
                 player.AddItem(item);
                 RemoveItem(item);
                 Console.WriteLine($"You bought {item.GetName()}.");
@@ -48,11 +48,10 @@ namespace TextRPG_V2
 
         public void SellItem(Item item, Player player)
         {
-            player.Gold += item.Price;
+            player.gold += item.GetPrice();
             player.RemoveItem(item);
             AddItem(item);
             Console.WriteLine($"You sold {item.GetName()}.");
         }
     }
 }
-s

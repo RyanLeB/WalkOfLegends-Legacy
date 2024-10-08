@@ -13,7 +13,7 @@ namespace TextRPG_V2.Items
         /// <summary>
         /// Empty constructor method for a "Healing Potion" Item.
         /// </summary>
-        public HealingPotion() : base("healing potion")
+        public HealingPotion() : base("healing potion", 20)
         {
             healing = GlobalVariables.potionHealingValue;
             SetSymbol('p');

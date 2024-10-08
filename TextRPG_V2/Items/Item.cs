@@ -8,17 +8,19 @@ namespace TextRPG_V2
 {
     public abstract class Item
     {
-        private string name; //name of the item
-        private ConsoleColor color; //color of the Item respresentation
-        private char symbol; //the graphical representation of the Item
+        private string name; // Name of the item
+        private ConsoleColor color; // Color of the Item representation
+        private char symbol; // The graphical representation of the Item
+        private int price; // Price of the item
 
         /// <summary>
         /// Constructor method for an abstract item object
         /// </summary>
-        /// <param name="name">name of the item</param>
-        public Item(string name)
+        /// <param name="name">Name of the item</param>
+        public Item(string name, int price)
         {
             this.name = name;
+            this.price = price;
             color = ConsoleColor.Yellow;
             symbol = '?';
         }
@@ -29,6 +31,7 @@ namespace TextRPG_V2
         public Item()
         {
             name = null;
+            price = 0;
             color = ConsoleColor.Yellow;
             symbol = '?';
         }
@@ -43,57 +46,73 @@ namespace TextRPG_V2
         /// <summary>
         /// Accessor method for the name of the item
         /// </summary>
-        /// <returns>name of the item</returns>
+        /// <returns>Name of the item</returns>
         public string GetName()
         {
             return name;
         }
 
         /// <summary>
-        /// Mutator
+        /// Mutator method for the name of the item
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">Name of the item</param>
         public void SetName(string name)
         {
             this.name = name;
         }
 
-        /*
-         * Mutator method that sets the graphical representation of the Item
-         * Input: (char) symbol: the graphical representation of the Item
-         */
+        /// <summary>
+        /// Accessor method for the price of the item
+        /// </summary>
+        /// <returns>Price of the item</returns>
+        public int GetPrice()
+        {
+            return price;
+        }
+
+        /// <summary>
+        /// Mutator method for the price of the item
+        /// </summary>
+        /// <param name="price">Price of the item</param>
+        public void SetPrice(int price)
+        {
+            this.price = price;
+        }
+
+        /// <summary>
+        /// Mutator method that sets the graphical representation of the Item
+        /// </summary>
+        /// <param name="symbol">The graphical representation of the Item</param>
         public void SetSymbol(char symbol)
         {
             this.symbol = symbol;
         }
 
-        /*
-         * Accessor method that returns the graphical representation of the Item
-         * Output: (char) symbol: the graphical representation of the Item
-         */
+        /// <summary>
+        /// Accessor method that returns the graphical representation of the Item
+        /// </summary>
+        /// <returns>The graphical representation of the Item</returns>
         public char GetSymbol()
         {
             return symbol;
         }
 
-        /*
-         * Mutator method that sets the color of the graphical representation of the Item
-         * Input: (ConsoleColor) color: the color of the graphical representation of the Item
-         */
+        /// <summary>
+        /// Mutator method that sets the color of the graphical representation of the Item
+        /// </summary>
+        /// <param name="color">The color of the graphical representation of the Item</param>
         public void SetColor(ConsoleColor color)
         {
             this.color = color;
         }
 
-        /*
-         * Accessor method that returns the color of the graphical representation of the Item
-         * Output: (ConsoleColor) color: the color of the graphical representation of the Item
-         */
+        /// <summary>
+        /// Accessor method that returns the color of the graphical representation of the Item
+        /// </summary>
+        /// <returns>The color of the graphical representation of the Item</returns>
         public ConsoleColor GetColor()
         {
             return color;
         }
-
-
     }
 }

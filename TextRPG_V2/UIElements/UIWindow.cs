@@ -59,13 +59,28 @@ namespace TextRPG_V2
         /// <param name="startpos">The position on the console at which to start printing the window</param>
         public void printWindow(int[] startpos)
         {
-            for (int y=0; y<height; y++)
+            // Ensure startpos is within valid range
+            int maxStartPosY = Console.BufferHeight - height;
+            int maxStartPosX = Console.BufferWidth - width;
+
+            int startY = Math.Max(0, Math.Min(startpos[0], maxStartPosY));
+            int startX = Math.Max(0, Math.Min(startpos[1], maxStartPosX));
+
+            for (int y = 0; y < height; y++)
             {
-                for (int x=0; x<width; x++)
+                for (int x = 0; x < width; x++)
                 {
-                    Console.SetCursorPosition(startpos[1] + x, startpos[0] +y) ;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write(contents[y,x]) ;
+                    int cursorLeft = startX + x;
+                    int cursorTop = startY + y;
+
+                    // Check if the cursor position is within the console buffer size
+                    if (cursorLeft >= 0 && cursorLeft < Console.BufferWidth &&
+                        cursorTop >= 0 && cursorTop < Console.BufferHeight)
+                    {
+                        Console.SetCursorPosition(cursorLeft, cursorTop);
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write(contents[y, x]);
+                    }
                 }
             }
         }

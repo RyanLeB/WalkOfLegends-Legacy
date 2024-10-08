@@ -65,7 +65,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entities\Stat.cs" />
+    <Compile Include="Shop-Quests\Quest.cs" />
+    <Compile Include="Shop-Quests\Shop.cs" />
     <Compile Include="UIElements\Camera.cs" />
+    <Compile Include="UIElements\QuestWindow.cs" />
     <Compile Include="UIElements\ControlsWindow.cs" />
     <Compile Include="UIElements\EventLog.cs" />
     <Compile Include="UIElements\StatWindow.cs" />
