@@ -22,7 +22,7 @@ namespace TextRPG_V2
         EntityManager entityManager; //The object that managed entities
         ItemManager itemManager; //object that manages items
         public QuestManager questManager;//object that manages quests
-        public GameManager gameManager;
+        
         private Shop shop_1;
         private Shop shop_2;
         private Shop shop_3;
@@ -97,8 +97,10 @@ namespace TextRPG_V2
         {
             quests = new List<Quest> {
             new Quest("Defeat 10 Enemies", "Defeat 10 enemies to complete this quest", 10),
-            new Quest("Use an item", "Use any item to complete this quest", 1),
-            new Quest("Escape the dungeon", "Escape the dungeon", 1)
+            
+            // commenting out for debug purposes
+            //new Quest("Use an item", "Use any item to complete this quest", 1),
+            //new Quest("Escape the dungeon", "Escape the dungeon", 1)
         };
             
             uiManager.UpdateQuestWindow(quests);
@@ -127,7 +129,7 @@ namespace TextRPG_V2
             while (!gameLose && !gameWin)
             {
                 //updates the entities and checks if the game was won
-                gameWin = entityManager.UpdateEntities(map, uiManager, itemManager, gameManager);
+                gameWin = entityManager.UpdateEntities(map, uiManager, itemManager);
                 
                 //updates the items
                 itemManager.UpdateItems();

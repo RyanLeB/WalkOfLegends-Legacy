@@ -89,11 +89,11 @@ namespace TextRPG_V2
         /// <param name="uIManager">the manager for the game UI</param>
         /// <param name="itemManager">the manager for the items on the map</param>
         /// <returns></returns>
-        public bool UpdateEntities(Map map, UIManager uIManager, ItemManager itemManager, GameManager gameManager)
+        public bool UpdateEntities(Map map, UIManager uIManager, ItemManager itemManager)
         {
             for (int i = 0; i < entityTurns.Count; i++)
             {
-                if (entityTurns[i].Update(map, uIManager, itemManager, this, gameManager))
+                if (entityTurns[i].Update(map, uIManager, itemManager, this))
                 {
                     return true;
                 }
@@ -124,7 +124,7 @@ namespace TextRPG_V2
         /// </summary>
         /// <param name="map"></param>
         /// <param name="uIManager"></param>
-        public void CheckDeadEntities(Map map, UIManager uIManager, GameManager gameManager)
+        public void CheckDeadEntities(Map map, UIManager uIManager)
         {
             for(int i=0; i<entityTurns.Count; i++)
             {
