@@ -56,7 +56,7 @@ namespace TextRPG_V2
             string path = Path.Combine(Environment.CurrentDirectory, GlobalVariables.directory, GlobalVariables.filename);
 
             //initializing the entity and item managers
-            entityManager = new EntityManager();
+            entityManager = new EntityManager(questManager);
             itemManager = new ItemManager();
 
             //loading in map from the file path

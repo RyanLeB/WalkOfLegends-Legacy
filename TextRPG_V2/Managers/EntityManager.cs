@@ -13,14 +13,17 @@ namespace TextRPG_V2
 
         //list of entity turns (entities and their ability to take turns) on the map
         private List<EntityTurn> entityTurns;
+        private QuestManager questManager;
         
         /// <summary>
         /// Constructor method for an Entity Manager
         /// </summary>
-        public EntityManager()
+        public EntityManager(QuestManager questManager)
         {
             entityTurns = new List<EntityTurn>();
+            
         }
+    
 
         /// <summary>
         /// Mutator method that adds an entity to the list of EntityTurns in EntityManager
@@ -129,6 +132,8 @@ namespace TextRPG_V2
                     uIManager.AddEventToLog(entityTurns[i].entity.GetName() + " died.");
                     map.RemoveEntity(entityTurns[i].entity);
                     entityTurns.Remove(entityTurns[i]);
+                    
+
                 }
             }
         }

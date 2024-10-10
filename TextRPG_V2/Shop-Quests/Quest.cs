@@ -8,20 +8,20 @@ namespace TextRPG_V2.Shop_Quests
 {
     public class Quest
     {
-        public string Name { get; private set; }
-        public string Description { get; private set; }
-        public bool IsCompleted { get; private set; }
-        public int EnemiesToDefeat { get; set; }
-        public int EnemiesDefeated { get; private set; }
+        public string Name;
+        public string Description;
+        public bool IsCompleted;
+        public int EnemiesToDefeat;
+        public int EnemiesDefeated;
 
        
 
-        public Quest(string name, string description, int enemiesToDefeat = 0)
+        public Quest(string name, string description)
         {
             Name = name;
             Description = description;
-            EnemiesToDefeat = enemiesToDefeat;
-            EnemiesDefeated = 0;
+            
+            
             IsCompleted = false;
         }
 
