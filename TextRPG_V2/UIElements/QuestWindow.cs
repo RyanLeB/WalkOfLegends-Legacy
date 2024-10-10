@@ -23,15 +23,12 @@ namespace TextRPG_V2.UIElements
             int linePos = 1;
             foreach (var quest in quests)
             {
-                if (!quest.IsCompleted)
+                if (!quest.isCompleted)
                 {
-                    AddLine(linePos++, $"Quest: {quest.Name}");
+                    AddLine(linePos++, $"Quest: {quest.Name} - Progress: {quest.GetProgress()}");
 
-                    if (quest.EnemiesToDefeat > 0)
-                    {
-                        AddLine(linePos++, $"Progress: {quest.EnemiesDefeated}/{quest.EnemiesToDefeat} enemies defeated");
-                    }
                 }
+                    
             }
         }
     }

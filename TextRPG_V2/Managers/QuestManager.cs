@@ -2,6 +2,7 @@
 using TextRPG_V2.Shop_Quests;
 using TextRPG_V2;
 using System;
+using System.Linq;
 
 public class QuestManager
 {
@@ -13,23 +14,24 @@ public class QuestManager
         this.quests = quests;
         this.uiManager = uiManager;
     }
-
-    public void EnemyDefeated()
+    public void UpdateQuests()
     {
         foreach (var quest in quests)
         {
-            quest.EnemyDefeated();
+            quest.Update();
         }
         uiManager.UpdateQuestWindow(quests);
     }
 
-    public void ItemUsed()
+
+    public void IncrementQuestTask(string questName)
     {
-        foreach (var quest in quests)
+        var quest = quests.FirstOrDefault(q => q.Name == questName);
+        if (quest != null)
         {
-            quest.ItemUsed();
+            quest.IncrementTask();
+            uiManager.UpdateQuestWindow(quests);
         }
-        uiManager.UpdateQuestWindow(quests);
     }
 }
 

@@ -22,7 +22,7 @@ namespace TextRPG_V2
         EntityManager entityManager; //The object that managed entities
         ItemManager itemManager; //object that manages items
         public QuestManager questManager;//object that manages quests
-
+        public GameManager gameManager;
         private Shop shop_1;
         private Shop shop_2;
         private Shop shop_3;
@@ -45,6 +45,7 @@ namespace TextRPG_V2
             shop_2 = new Shop();
             shop_3 = new Shop();
             quests = new List<Quest>();
+            
         }
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace TextRPG_V2
             string path = Path.Combine(Environment.CurrentDirectory, GlobalVariables.directory, GlobalVariables.filename);
 
             //initializing the entity and item managers
-            entityManager = new EntityManager(questManager);
+            entityManager = new EntityManager();
             itemManager = new ItemManager();
 
             //loading in map from the file path
@@ -64,6 +65,8 @@ namespace TextRPG_V2
 
             //initializing UI
             uiManager = new UIManager(entityManager, quests);
+
+            questManager = new QuestManager(quests, uiManager);
 
             // Initialize shop and quests
             InitializeShop(shop_1);
@@ -93,10 +96,11 @@ namespace TextRPG_V2
         private void InitializeQuests()
         {
             quests = new List<Quest> {
-            new Quest("Defeat 5 Enemies", "Defeat 5 enemies to complete this quest", 5),
-            new Quest("Use an item", "Use any item to complete this quest")
+            new Quest("Defeat 10 Enemies", "Defeat 10 enemies to complete this quest", 10),
+            new Quest("Use an item", "Use any item to complete this quest", 1),
+            new Quest("Escape the dungeon", "Escape the dungeon", 1)
         };
-            questManager = new QuestManager(quests, uiManager);
+            
             uiManager.UpdateQuestWindow(quests);
         }
 
@@ -123,11 +127,11 @@ namespace TextRPG_V2
             while (!gameLose && !gameWin)
             {
                 //updates the entities and checks if the game was won
-                gameWin = entityManager.UpdateEntities(map, uiManager, itemManager);
+                gameWin = entityManager.UpdateEntities(map, uiManager, itemManager, gameManager);
                 
                 //updates the items
                 itemManager.UpdateItems();
-
+                
                 //check if the player has been killed
                 if(entityManager.GetPlayer() == null)
                 {
@@ -150,7 +154,7 @@ namespace TextRPG_V2
 
             if (gameWin)
             {
-                Console.WriteLine("You managed to escpate the dungeon.");
+                Console.WriteLine("You managed to escape the dungeon.");
                 Console.WriteLine("Congratulations on beating the game!");
             }
             else if (gameLose)

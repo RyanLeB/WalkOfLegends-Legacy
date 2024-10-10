@@ -13,15 +13,16 @@ namespace TextRPG_V2
 
         //list of entity turns (entities and their ability to take turns) on the map
         private List<EntityTurn> entityTurns;
-        private QuestManager questManager;
+        
         
         /// <summary>
         /// Constructor method for an Entity Manager
         /// </summary>
-        public EntityManager(QuestManager questManager)
+        public EntityManager()
         {
             entityTurns = new List<EntityTurn>();
             
+
         }
     
 
@@ -88,11 +89,11 @@ namespace TextRPG_V2
         /// <param name="uIManager">the manager for the game UI</param>
         /// <param name="itemManager">the manager for the items on the map</param>
         /// <returns></returns>
-        public bool UpdateEntities(Map map, UIManager uIManager, ItemManager itemManager)
+        public bool UpdateEntities(Map map, UIManager uIManager, ItemManager itemManager, GameManager gameManager)
         {
             for (int i = 0; i < entityTurns.Count; i++)
             {
-                if (entityTurns[i].Update(map, uIManager, itemManager, this))
+                if (entityTurns[i].Update(map, uIManager, itemManager, this, gameManager))
                 {
                     return true;
                 }
@@ -123,16 +124,16 @@ namespace TextRPG_V2
         /// </summary>
         /// <param name="map"></param>
         /// <param name="uIManager"></param>
-        public void CheckDeadEntities(Map map, UIManager uIManager)
+        public void CheckDeadEntities(Map map, UIManager uIManager, GameManager gameManager)
         {
             for(int i=0; i<entityTurns.Count; i++)
             {
                 if (entityTurns[i].entity.health.GetHp() <= 0)
                 {
                     uIManager.AddEventToLog(entityTurns[i].entity.GetName() + " died.");
+                    gameManager.questManager.IncrementQuestTask("Defeat 10 Enemies");
                     map.RemoveEntity(entityTurns[i].entity);
                     entityTurns.Remove(entityTurns[i]);
-                    
 
                 }
             }

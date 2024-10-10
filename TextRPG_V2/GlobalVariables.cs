@@ -30,6 +30,8 @@ namespace TextRPG_V2
         public const float critSklWeight = 0.1f;
 
 
+        
+
 
         //Items
         public const int potionHealingValue = 10;

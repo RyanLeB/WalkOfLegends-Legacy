@@ -37,7 +37,7 @@ namespace TextRPG_V2
             enemyStatWindow = new StatWindow(null);
             controlsWindow = new ControlsWindow();
             eventLogWindow = new EventLog();
-            questWindow = new QuestWindow(30, 10, quests);
+            questWindow = new QuestWindow(70, 10, quests);
 
             // Set initial positions of windows
             gameplayPos = new int[2] { 0, 0 };

@@ -8,53 +8,61 @@ namespace TextRPG_V2.Shop_Quests
 {
     public class Quest
     {
-        public string Name;
-        public string Description;
-        public bool IsCompleted;
-        public int EnemiesToDefeat;
-        public int EnemiesDefeated;
+        public string Name; // Name of the quest
+        public string Description; // Description of the quest
+        public bool isCompleted; // checks if the quest is completed
 
-       
+        
 
-        public Quest(string name, string description)
+        public int totalTasks; // total tasks to complete
+        public int currentTasks; // current tasks completed
+
+        // Constructor for the Quest class, includes the name, description, quest goal, and total tasks to complete the quest
+        public Quest(string name, string description, int totalTasks)
         {
-            Name = name;
-            Description = description;
+            isCompleted = false;
+            
+            this.Name = name;
+            this.Description = description;
             
             
-            IsCompleted = false;
+            this.totalTasks = totalTasks;
+            
+            
+            currentTasks = 0;
         }
 
-        private void CompleteQuest()
+
+        // Checks if the quest is completed
+        public void Update()
         {
-            if (!IsCompleted)
+            if (currentTasks >= totalTasks)
             {
-                IsCompleted = true;
-                
+                isCompleted = true;
+                Name = "Quest Complete";
             }
         }
 
-        public void EnemyDefeated()
+        // Method to increment the current tasks
+        public void IncrementTask()
         {
-            if (EnemiesToDefeat > 0)
+            if (currentTasks < totalTasks)
             {
-                EnemiesDefeated++;
-                if (EnemiesDefeated >= EnemiesToDefeat)
-                {
-                    CompleteQuest();
-                }
+                currentTasks++;
             }
+            Update();
         }
 
-        public void ItemUsed()
+        // Gets the progress of the quest
+        public string GetProgress()
         {
-            if (Name == "Use an item" && !IsCompleted)
-            {
-                CompleteQuest();
-            }
+            return $"{currentTasks}/{totalTasks}";
         }
-
-
-
     }
 }
+
+
+
+
+
+
