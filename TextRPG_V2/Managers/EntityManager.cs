@@ -131,7 +131,7 @@ namespace TextRPG_V2
                 if (entityTurns[i].entity.health.GetHp() <= 0)
                 {
                     uIManager.AddEventToLog(entityTurns[i].entity.GetName() + " died.");
-                    gameManager.questManager.IncrementQuestTask("Defeat 10 Enemies");
+                    
                     map.RemoveEntity(entityTurns[i].entity);
                     entityTurns.Remove(entityTurns[i]);
 
