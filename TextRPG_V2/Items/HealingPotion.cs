@@ -9,7 +9,7 @@ namespace TextRPG_V2.Items
     public class HealingPotion : Item
     {
         private int healing; //amount of healing done by the potion
-
+        
         /// <summary>
         /// Empty constructor method for a "Healing Potion" Item.
         /// </summary>
@@ -29,11 +29,13 @@ namespace TextRPG_V2.Items
         {
             string message = target.GetName() + " used a " + GetName(); ;
             int oldHp = target.health.GetHp();
+            
 
             target.health.ModHp(healing);
 
             message += " and healed " + (target.health.GetHp() - oldHp) + " hp.";
 
+            
             return message;
         }
     }

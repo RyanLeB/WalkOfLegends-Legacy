@@ -11,9 +11,9 @@ namespace TextRPG_V2
     {
 
 
-        public int gold;
-        private List<Item> inventory;
 
+        // player gold value
+        public int playerGold;
 
         /// <summary>
         /// Empty constructor for a "Player" class entity.
@@ -32,23 +32,24 @@ namespace TextRPG_V2
             base.spd = new Stat(10);
             base.skl = new Stat(10);
             base.luc = new Stat(10);
-            gold = 100;
-            inventory = new List<Item>();
+            
+            
+            
+            playerGold = 0;
+            
 
         }
 
-
-        // ---- Adds Item to inventory ----
-        public void AddItem(Item item)
+        public void AddGold(int amount)
         {
-            inventory.Add(item);
+            playerGold += amount;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"You received {amount} gold! Total gold: {playerGold}");
+            Console.ResetColor();
         }
 
-        // ---- Removes Item from inventory ----
-        public void RemoveItem(Item item)
-        {
-            inventory.Remove(item);
-        }
+
+        
 
 
         /// <summary>
@@ -112,18 +113,9 @@ namespace TextRPG_V2
                         System.Environment.Exit(0);
                         break;
 
-                    // ---- Enter shop ----
-                    case ConsoleKey.B:
-                        uiManager.DisplayShop(GameManager.Instance.GetShop());
-                        gotInput = true;
-                        break;
+                    
 
-                    // ---- Check quests ----
-                    case ConsoleKey.Q:
-                        uiManager.DisplayQuests(GameManager.Instance.GetQuests());
-                        gotInput = true;
-                        break;
-                    default: break;
+                    
                 }
             }
 

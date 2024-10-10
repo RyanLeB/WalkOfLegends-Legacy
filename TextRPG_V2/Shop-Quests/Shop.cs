@@ -33,10 +33,10 @@ namespace TextRPG_V2
 
         public void BuyItem(Item item, Player player)
         {
-            if (player.gold >= item.GetPrice())
+            if (player.playerGold >= item.GetPrice())
             {
-                player.gold -= item.GetPrice();
-                player.AddItem(item);
+                player.playerGold -= item.GetPrice();
+                
                 RemoveItem(item);
                 Console.WriteLine($"You bought {item.GetName()}.");
             }
@@ -48,8 +48,8 @@ namespace TextRPG_V2
 
         public void SellItem(Item item, Player player)
         {
-            player.gold += item.GetPrice();
-            player.RemoveItem(item);
+            player.playerGold += item.GetPrice();
+            
             AddItem(item);
             Console.WriteLine($"You sold {item.GetName()}.");
         }

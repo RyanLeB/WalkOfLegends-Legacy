@@ -10,7 +10,7 @@ namespace TextRPG_V2.Items
     public class Sword : Item
     {
         int atkIncrease; //amount by which a sword increases attack
-
+        
         /// <summary>
         /// Empty constructor method for a "Swords" Item.
         /// </summary>
@@ -29,11 +29,11 @@ namespace TextRPG_V2.Items
         {
             string message = target.GetName() + " used a " + GetName();
             int oldAtk = target.atk.GetStat();
-
+            
             target.atk.ModStat(atkIncrease);
 
-            message += " and increased their atk by " + (target.atk.GetStat() - oldAtk) + "."; 
-
+            message += " and increased their atk by " + (target.atk.GetStat() - oldAtk) + ".";
+            
             return message;
         }
     }

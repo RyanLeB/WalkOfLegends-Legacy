@@ -13,6 +13,8 @@ namespace TextRPG_V2
         private char symbol; // The graphical representation of the Item
         private int price; // Price of the item
 
+         
+
         /// <summary>
         /// Constructor method for an abstract item object
         /// </summary>
@@ -23,6 +25,7 @@ namespace TextRPG_V2
             this.price = price;
             color = ConsoleColor.Yellow;
             symbol = '?';
+            
         }
 
         /// <summary>
@@ -34,6 +37,7 @@ namespace TextRPG_V2
             price = 0;
             color = ConsoleColor.Yellow;
             symbol = '?';
+            
         }
 
         /// <summary>
@@ -42,6 +46,7 @@ namespace TextRPG_V2
         /// <param name="target">The entity that is using the item</param>
         /// <returns>A string for the event log</returns>
         public abstract string Use(Entity target);
+
 
         /// <summary>
         /// Accessor method for the name of the item

@@ -21,9 +21,12 @@ namespace TextRPG_V2
         UIManager uiManager; //The Object that manages UI elements (Camera, action log, controls, etc...) 
         EntityManager entityManager; //The object that managed entities
         ItemManager itemManager; //object that manages items
-        public QuestManager QuestManager; //object that manages quests
+        public QuestManager questManager;//object that manages quests
 
-        private Shop shop;
+        private Shop shop_1;
+        private Shop shop_2;
+        private Shop shop_3;
+
         private List<Quest> quests;
 
         private bool gameWin; //bool tracking if the game was won
@@ -38,7 +41,9 @@ namespace TextRPG_V2
         {
             gameLose = false;
             gameWin = false;
-            shop = new Shop();
+            shop_1 = new Shop();
+            shop_2 = new Shop();
+            shop_3 = new Shop();
             quests = new List<Quest>();
         }
 
@@ -61,7 +66,7 @@ namespace TextRPG_V2
             uiManager = new UIManager(entityManager, quests);
 
             // Initialize shop and quests
-            InitializeShop();
+            InitializeShop(shop_1);
             InitializeQuests();
 
             //title screen
@@ -78,50 +83,39 @@ namespace TextRPG_V2
         /// Method that starts the game loop of the game
         /// </summary>
 
-        private void InitializeShop()
+        private void InitializeShop(Shop shop)
         {
             shop.AddItem(new HealingPotion());
             shop.AddItem(new Sword());
+            shop.AddItem(new BootsOfSpeed());
         }
 
         private void InitializeQuests()
         {
-            quests = new List<Quest>
-        {
-            new Quest("Escape the Dungeon", "Find the exit to escape the dungeon."),
-            new Quest("Defeat 3 Enemies", "Defeat 3 enemies to complete this quest.", 3)
+            quests = new List<Quest> {
+            new Quest("Defeat 5 Enemies", "Defeat 5 enemies to complete this quest", 5),
+            new Quest("Use an item", "Use any item to complete this quest")
         };
-            QuestManager = new QuestManager(quests, uiManager);
+            questManager = new QuestManager(quests, uiManager);
             uiManager.UpdateQuestWindow(quests);
         }
 
+        
 
-        public Shop GetShop()
+        public Shop GetShop(Shop shop)
         {
             return shop;
         }
 
-        public List<Quest> GetQuests()
-        {
-            return quests;
-        }
+        
 
-        public void EnterShop()
+        public void EnterShop(Shop shop)
         {
             shop.DisplayInventory();
-            // Add logic for buying/selling items
+            
         }
 
-        public void CheckQuests()
-        {
-            foreach (var quest in quests)
-            {
-                if (!quest.IsCompleted)
-                {
-                    Console.WriteLine($"Quest: {quest.Name} - {quest.Description}");
-                }
-            }
-        }
+        
 
         public void GameLoop()
         {

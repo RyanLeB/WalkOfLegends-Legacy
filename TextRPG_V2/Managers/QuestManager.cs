@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TextRPG_V2.Shop_Quests;
 using TextRPG_V2;
+using System;
 
 public class QuestManager
 {
@@ -21,5 +22,15 @@ public class QuestManager
         }
         uiManager.UpdateQuestWindow(quests);
     }
+
+    public void ItemUsed()
+    {
+        foreach (var quest in quests)
+        {
+            quest.ItemUsed();
+        }
+        uiManager.UpdateQuestWindow(quests);
+    }
 }
+
 

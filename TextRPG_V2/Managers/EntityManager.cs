@@ -9,17 +9,17 @@ namespace TextRPG_V2
 
     public class EntityManager
     {
+
+
         //list of entity turns (entities and their ability to take turns) on the map
         private List<EntityTurn> entityTurns;
-        private List<Entity> entities;
-        private GameManager gameManager;
+        
         /// <summary>
         /// Constructor method for an Entity Manager
         /// </summary>
-        public EntityManager(GameManager gameManager)
+        public EntityManager()
         {
-            this.gameManager = gameManager;
-            entities = new List<Entity>();
+            entityTurns = new List<EntityTurn>();
         }
 
         /// <summary>
@@ -129,7 +129,6 @@ namespace TextRPG_V2
                     uIManager.AddEventToLog(entityTurns[i].entity.GetName() + " died.");
                     map.RemoveEntity(entityTurns[i].entity);
                     entityTurns.Remove(entityTurns[i]);
-                    gameManager.QuestManager.EnemyDefeated();
                 }
             }
         }

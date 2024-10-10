@@ -8,6 +8,9 @@ namespace TextRPG_V2
 {
     public class BootsOfSpeed : Item
     {
+        
+        
+        
         /// <summary>
         /// Constructor method for a "Boots of Speed" Item.
         /// </summary>
@@ -28,7 +31,7 @@ namespace TextRPG_V2
             message += " and maxed their speed";
 
             target.spd.SetStat(target.spd.GetMaxStat());
-
+            
             return message;
         }
     }

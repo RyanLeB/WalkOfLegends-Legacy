@@ -87,16 +87,7 @@ namespace TextRPG_V2
             questWindow.UpdateQuests(quests);
         }
 
-        public void DisplayQuests(List<Quest> quests)
-        {
-            foreach (var quest in quests)
-            {
-                if (!quest.IsCompleted)
-                {
-                    Console.WriteLine($"Quest: {quest.Name} - {quest.Description}");
-                }
-            }
-        }
+        
         /// <summary>
         /// Method which adds an event message to the event log
         /// </summary>

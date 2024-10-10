@@ -14,6 +14,8 @@ namespace TextRPG_V2.Shop_Quests
         public int EnemiesToDefeat { get; set; }
         public int EnemiesDefeated { get; private set; }
 
+       
+
         public Quest(string name, string description, int enemiesToDefeat = 0)
         {
             Name = name;
@@ -23,10 +25,13 @@ namespace TextRPG_V2.Shop_Quests
             IsCompleted = false;
         }
 
-        public void CompleteQuest()
+        private void CompleteQuest()
         {
-            IsCompleted = true;
-            Console.WriteLine($"Quest '{Name}' completed!");
+            if (!IsCompleted)
+            {
+                IsCompleted = true;
+                
+            }
         }
 
         public void EnemyDefeated()
@@ -40,6 +45,15 @@ namespace TextRPG_V2.Shop_Quests
                 }
             }
         }
+
+        public void ItemUsed()
+        {
+            if (Name == "Use an item" && !IsCompleted)
+            {
+                CompleteQuest();
+            }
+        }
+
 
 
     }

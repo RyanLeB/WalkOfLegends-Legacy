@@ -192,7 +192,7 @@ namespace TextRPG_V2
             {
                 attackMessage += " and missed.";  
             }
-
+            
             return attackMessage;
         }
 

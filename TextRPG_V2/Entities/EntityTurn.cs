@@ -32,39 +32,39 @@ namespace TextRPG_V2
         /// <returns>bool returning if game is ending</returns>
         public bool Update(Map map, UIManager uIManager, ItemManager itemManager, EntityManager entityManager)
         {
-            // Adding speed to build up the Entity's turn
+            //adding speed to build up the Entity's turn
             turnBuildup += entity.spd.GetStat();
 
             while (turnBuildup >= GlobalVariables.actionThreshold)
             {
-                // Update UI for player
+                //update UI for player
                 if (entity == entityManager.GetPlayer())
                 {
                     uIManager.DrawUI(map);
                 }
 
-                // Checks if player is standing on the exit tile
+                //checks if player is standing on the exit tile
                 if (map.GetTile(map.GetEntityIndex(entityManager.GetPlayer())).GetExit())
                 {
                     return true;
                 }
 
-                // Adds events of the turn to the log (if the events were notable)
+                //adds events of the turn to the log (if the events were notable)
                 uIManager.AddEventToLog(TakeAction(map, uIManager, itemManager));
 
-                // Check if entity takes damage from tile
+                //check if entity takes damage from tile
                 if (map.GetTile(map.GetEntityIndex(entity)).GetDangerous())
                 {
                     uIManager.AddEventToLog(map.GetTile(map.GetEntityIndex(entity)).DealDamage(entity));
                 }
 
-                // Gets the entity manager to check for dead enemies
+                //gets the entity manager to check for dead enemies
                 entityManager.CheckDeadEntities(map, uIManager);
             }
 
             return false;
-        }
 
+        }
 
         /// <summary>
         /// Method that instructs the entity to take an action.
@@ -76,7 +76,11 @@ namespace TextRPG_V2
         private string TakeAction(Map map, UIManager uIManager, ItemManager itemManager)
         {
             turnBuildup -= GlobalVariables.actionThreshold;
-            return entity.ChooseAction(map, map.GetEntityIndex(entity), uIManager, itemManager);
+            string actionResult = entity.ChooseAction(map, map.GetEntityIndex(entity), uIManager, itemManager);
+
+            
+
+            return actionResult;
         }
     }
 }
