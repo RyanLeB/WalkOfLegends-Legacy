@@ -27,8 +27,11 @@ namespace TextRPG_V2.UIElements
                 {
                     AddLine(linePos++, $"Quest: {quest.Name}");
                     AddLine(linePos++, $"Desc: {quest.Description}");
+                    if (quest.EnemiesToDefeat > 0)
+                    {
+                        AddLine(linePos++, $"Progress: {quest.EnemiesDefeated}/{quest.EnemiesToDefeat} enemies defeated");
+                    }
                 }
-
             }
         }
 

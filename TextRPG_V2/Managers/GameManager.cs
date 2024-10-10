@@ -21,7 +21,7 @@ namespace TextRPG_V2
         UIManager uiManager; //The Object that manages UI elements (Camera, action log, controls, etc...) 
         EntityManager entityManager; //The object that managed entities
         ItemManager itemManager; //object that manages items
-
+        public QuestManager QuestManager; //object that manages quests
 
         private Shop shop;
         private List<Quest> quests;
@@ -86,9 +86,15 @@ namespace TextRPG_V2
 
         private void InitializeQuests()
         {
-            quests.Add(new Quest("Escape the Dungeon", "Find the exit to escape the dungeon."));
+            quests = new List<Quest>
+        {
+            new Quest("Escape the Dungeon", "Find the exit to escape the dungeon."),
+            new Quest("Defeat 3 Enemies", "Defeat 3 enemies to complete this quest.", 3)
+        };
+            QuestManager = new QuestManager(quests, uiManager);
             uiManager.UpdateQuestWindow(quests);
         }
+
 
         public Shop GetShop()
         {
