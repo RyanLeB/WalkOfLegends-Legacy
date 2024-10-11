@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ShopManager.cs" />
     <Compile Include="QuestManager.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyDragon.cs" />

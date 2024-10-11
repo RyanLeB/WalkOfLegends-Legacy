@@ -19,7 +19,12 @@ namespace FirstPlayable_CalebWolthers_22012024
         public int width;
         public int height;
         private Player player;
-        
+
+        // new additions
+        static string[] shopFile;
+        public char[,] shop;
+
+
         public Map(Player player)
         {
             this.player = player;
@@ -29,7 +34,14 @@ namespace FirstPlayable_CalebWolthers_22012024
         {
             mapFile = File.ReadAllLines(@"Map1.txt");
 
+            // new additions
+            shopFile = File.ReadAllLines(@"Shop.txt");
+
             map = new char[mapFile.Length, mapFile[0].Length];
+
+            // new additions
+            shop = new char[shopFile.Length, shopFile[0].Length];
+
 
             width = map.GetLength(1);
             height = map.GetLength(0);
@@ -45,6 +57,11 @@ namespace FirstPlayable_CalebWolthers_22012024
 
             MakeMap();
 
+            // new additions
+            MakeShop();
+
+
+
             map[player.posX, player.posY] = player.playerChar;
 
             Console.SetCursorPosition(0, 0);
@@ -59,6 +76,17 @@ namespace FirstPlayable_CalebWolthers_22012024
                 for (int j = 0; j < mapFile[0].Length; j++)
                 {
                     map[i, j] = mapFile[i][j];
+                }
+            }
+        }
+
+        public void MakeShop()
+        {
+            for (int i = 0; i < shopFile.Length; i++)
+            {
+                for (int j = 0; j < shopFile[0].Length; j++)
+                {
+                    shop[i, j] = shopFile[i][j];
                 }
             }
         }
@@ -115,6 +143,50 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.WriteLine(new string('-', cameraWidth) + "+");
 
             //UI.ShowHUD();
+        }
+
+
+
+        // new addition - DisplayShop
+        public void DisplayShop()
+        {
+            Console.CursorVisible = false;
+            ConsoleColor[,] colors = new ConsoleColor[cameraHeight, cameraWidth];
+            char[,] newMap = new char[cameraHeight, cameraWidth];
+
+
+            Console.SetCursorPosition(0, 0);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("+");
+            Console.WriteLine(new string('-', cameraWidth) + "+");
+
+            for (int row = 0; row < cameraHeight; row++)
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("|");
+
+                for (int col = 0; col < cameraWidth; col++)
+                {
+                    if (row < shop.GetLength(0) && col < shop.GetLength(1))
+                    {
+                        newMap[row, col] = shop[row, col];
+                        colors[row, col] = GetTileColor(shop[row, col]);
+                    }
+                    else
+                    {
+                        newMap[row, col] = '^';
+                        colors[row, col] = ConsoleColor.White;
+                    }
+
+                    Console.ForegroundColor = colors[row, col];
+                    Console.Write(newMap[row, col]);
+                }
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("|");
+                Console.WriteLine();
+            }
+
         }
 
         public ConsoleColor GetTileColor(char tile)

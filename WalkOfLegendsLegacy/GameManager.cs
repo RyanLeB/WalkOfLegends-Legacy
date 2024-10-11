@@ -19,11 +19,13 @@ namespace FirstPlayable_CalebWolthers_22012024
         
         // new additions
         private QuestManager questManager;
+        private ShopManager shopManager;
+        public bool shopDisplayed;
 
         public void Play()
         {
             //Init
-            player = new Player();
+            player = new Player(this);
             map = new Map(player);
             enemyManager = new EnemyManager(player, map);
             gameOver = false;
@@ -34,7 +36,9 @@ namespace FirstPlayable_CalebWolthers_22012024
             ui.LoadStartingScreen();
             itemManager = new ItemManager(player, map, ui);
             player.SetStuff(map, enemyManager, ui, itemManager);
+            shopManager = new ShopManager(player);
             map.DisplayMap();
+            shopDisplayed = false;
 
             enemyManager.PlaceGoblins(5);
             enemyManager.PlaceOrcs(25);
@@ -59,7 +63,14 @@ namespace FirstPlayable_CalebWolthers_22012024
                 itemManager.UpdateItems();
                 player.Update(input);
                 enemyManager.UpdateEnemies();
+
+                // new additions
                 questManager.UpdateQuest();
+                if(shopDisplayed)
+                {
+                    shopManager.();
+                }
+
 
 
                 //Draw

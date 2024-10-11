@@ -32,6 +32,14 @@ namespace FirstPlayable_CalebWolthers_22012024
         public bool dragonDefeated;
         public int souls;
 
+        private GameManager gameManager;
+
+
+        public Player(GameManager gameManager)
+        {
+            this.gameManager = gameManager;
+        }
+
 
         public void SetStuff(Map map, EnemyManager enemyManager, UI ui, ItemManager itemManager)
         {
