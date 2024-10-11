@@ -23,6 +23,8 @@ namespace FirstPlayable_CalebWolthers_22012024
         private Player player;
 
 
+        // Defines the quests
+
         public QuestManager(Player player)
         {
             this.player = player;
@@ -32,6 +34,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             questCompleted = "Quest Completed!";
         }
 
+        // Updates the quests
 
         public void UpdateQuest()
         { 
@@ -52,6 +55,7 @@ namespace FirstPlayable_CalebWolthers_22012024
 
         }
 
+        // Calls the UpdateQuest method
 
         public void Update()
         {

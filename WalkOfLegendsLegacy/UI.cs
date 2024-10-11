@@ -187,7 +187,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 9);
             Console.WriteLine(breaker);
 
-            // new addition - Souls
+            // new addition - Souls counter
             
             Console.ForegroundColor = ConsoleColor.Magenta;
             int soulsStartPosY = map.cameraHeight - 6;

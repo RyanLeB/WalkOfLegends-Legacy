@@ -27,6 +27,7 @@ namespace FirstPlayable_CalebWolthers_22012024
         private GameManager gameManager;
 
 
+        // assigns player and gameManager
 
         public Map(Player player, GameManager gameManager)
         {
@@ -34,10 +35,14 @@ namespace FirstPlayable_CalebWolthers_22012024
             this.gameManager = gameManager;
         }
 
+        // assigns shopManager
+
         public void LocateShop(ShopManager shopManager)
         {
             this.shopManager = shopManager;
         }
+
+        // Draws Shop if shopDisplayed, otherwise draws map
 
         public void DrawShop()
         {
@@ -101,6 +106,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             }
         }
 
+        // makes shop
         public void MakeShop()
         {
             for (int i = 0; i < shopFile.Length; i++)

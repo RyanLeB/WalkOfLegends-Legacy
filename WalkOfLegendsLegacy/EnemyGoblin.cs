@@ -113,6 +113,8 @@ namespace FirstPlayable_CalebWolthers_22012024
             enemyCount -= 1;
 
             // new additions
+
+            // adds values when death occurs
             player.enemiesKilled += 1;
             player.souls += Settings.goblinSouls;
 

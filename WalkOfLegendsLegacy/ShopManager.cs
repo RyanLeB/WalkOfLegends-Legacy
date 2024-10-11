@@ -32,6 +32,9 @@ namespace FirstPlayable_CalebWolthers_22012024
 
         // Player Buffs 
 
+
+        // Purchase Health Buff
+
         void IncreaseHealth()
         {
             if (player.souls >= 30)
@@ -41,6 +44,8 @@ namespace FirstPlayable_CalebWolthers_22012024
             }
         }
 
+        // Purchase Damage Buff
+
         void IncreaseDamage()
         {
             if (player.souls >= 100)
@@ -49,6 +54,8 @@ namespace FirstPlayable_CalebWolthers_22012024
                 player.souls -= 100;
             }
         }
+
+        // Purchase Invincibility
 
         void Invincibility()
         {
