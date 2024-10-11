@@ -27,6 +27,11 @@ namespace FirstPlayable_CalebWolthers_22012024
         public HealthSystem healthSystem;
         private UI ui;
 
+        // new additions
+        public int enemiesKilled;
+        public bool dragonDefeated;
+        public int soulsEarned;
+
 
         public void SetStuff(Map map, EnemyManager enemyManager, UI ui, ItemManager itemManager)
         {
