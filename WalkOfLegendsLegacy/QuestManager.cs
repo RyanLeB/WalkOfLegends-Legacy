@@ -31,8 +31,8 @@ namespace FirstPlayable_CalebWolthers_22012024
         }
 
 
-        void UpdateQuest()
-        {
+        public void UpdateQuest()
+        { 
             if (player.enemiesKilled == 5)
             {
                 slayEnemiesQuest = questCompleted;

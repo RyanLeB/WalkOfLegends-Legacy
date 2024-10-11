@@ -16,6 +16,9 @@ namespace FirstPlayable_CalebWolthers_22012024
         public static ItemManager itemManager;
         public static UI ui;
         public static bool gameOver;
+        
+        // new additions
+        private QuestManager questManager;
 
         public void Play()
         {
@@ -27,6 +30,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             map.StartMap();
             ui = new UI(player, map, enemyManager);
             ui.LoadStartingScreen();
+            questManager = new QuestManager(player);
             itemManager = new ItemManager(player, map, ui);
             player.SetStuff(map, enemyManager, ui, itemManager);
             map.DisplayMap();
@@ -54,6 +58,7 @@ namespace FirstPlayable_CalebWolthers_22012024
                 itemManager.UpdateItems();
                 player.Update(input);
                 enemyManager.UpdateEnemies();
+                questManager.UpdateQuest();
 
 
                 //Draw
