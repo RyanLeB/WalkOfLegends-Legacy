@@ -156,7 +156,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.SetCursorPosition(questStartPosX, questStartPosY + 2);
             Console.WriteLine("Slay Enemies: " + questManager.slayEnemiesQuest);
             Console.SetCursorPosition(questStartPosX, questStartPosY + 3);
-            Console.WriteLine("Earn Souls: " + questManager.earnSouls);
+            Console.WriteLine("Souls Held: " + questManager.earnSouls);
             Console.SetCursorPosition(questStartPosX, questStartPosY + 4);
             Console.WriteLine(questManager.winGame);
             Console.SetCursorPosition(questStartPosX, questStartPosY + 5);

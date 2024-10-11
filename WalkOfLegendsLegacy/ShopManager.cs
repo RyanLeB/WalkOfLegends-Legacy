@@ -44,7 +44,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             {
                 player.healthSystem.Heal(30);
                 player.souls -= healthCost;
-                
+                ui.Draw();
             }
         }
 
@@ -58,7 +58,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             {
                 player.attack += 20;
                 player.souls -= damageCost;
-                
+                ui.Draw();
             }
         }
 
@@ -71,7 +71,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             if (player.souls >= invincibilityCost)
             {
                 player.souls -= invincibilityCost;
-                
+                ui.Draw();
                 itemInvincible = new ItemInvincible(map, player, ui);
                 itemInvincible.DoYourJob();
                 itemInvincible = null;
@@ -90,12 +90,18 @@ namespace FirstPlayable_CalebWolthers_22012024
             {
                 case ConsoleKey.D1:
                     IncreaseHealth();
+                    Console.Clear();
+                    ui.Draw();
                     break;
                 case ConsoleKey.D2:
                     IncreaseDamage();
+                    Console.Clear();
+                    ui.Draw();
                     break;
                 case ConsoleKey.D3:
                     Invincibility();
+                    Console.Clear();
+                    ui.Draw();
                     break;
                 default:
                     break;

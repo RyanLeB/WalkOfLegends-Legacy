@@ -42,7 +42,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             shopDisplayed = false;
 
             enemyManager.PlaceGoblins(5);
-            enemyManager.PlaceOrcs(25);
+            enemyManager.PlaceOrcs(10);
             enemyManager.PlaceMinotaurs(5);
             enemyManager.PlaceDragons(1);
 
@@ -92,7 +92,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             else if (gameOver == true && player.dragonDefeated)
             {
                 Console.Clear();
-                Console.WriteLine("Congratulations, you have defeated the dragon and won the game!"); // displayed victory screen
+                Console.WriteLine("Congratulations, you have defeated the dragon and beat the game!"); // displayed victory screen
             }
 
 
