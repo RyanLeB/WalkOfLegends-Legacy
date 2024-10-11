@@ -15,13 +15,18 @@ namespace FirstPlayable_CalebWolthers_22012024
         public string breaker = "------------------------";
         public string healthStatus;
         public string lastItem;
-        public Enemy enemy; 
+        public Enemy enemy;
+        // new additions
+        private QuestManager questManager;
 
-        public UI(Player player, Map map, EnemyManager enemyManager)
+
+        public UI(Player player, Map map, EnemyManager enemyManager, QuestManager questManager)
         {
             this.player = player;
             this.map = map;
             this.enemyManager = enemyManager;
+            this.questManager = questManager;
+
         }
 
 
@@ -160,9 +165,33 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 8);
             Console.WriteLine(breaker);
 
+
+            // new additions - Quest Log
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            int questStartPosY = map.cameraHeight - 6;
+            int questStartPosX = controlsStartPosX;
+
+            Console.SetCursorPosition(questStartPosX, questStartPosY);
+            Console.WriteLine(breaker);
+            Console.SetCursorPosition(questStartPosX, questStartPosY + 1);
+            Console.WriteLine("Quest Log:");
+            Console.SetCursorPosition(questStartPosX, questStartPosY + 2);
+            Console.WriteLine("Slay Enemies: " + questManager.slayEnemiesQuest);
+            Console.SetCursorPosition(questStartPosX, questStartPosY + 3);
+            Console.WriteLine("Earn Souls: " + questManager.earnSouls);
+            Console.SetCursorPosition(questStartPosX, questStartPosY + 4);
+            Console.WriteLine(questManager.winGame);
+            Console.SetCursorPosition(questStartPosX, questStartPosY + 5);
+            Console.WriteLine(breaker);
+
+
+
+
+
             //Legend
             Console.ForegroundColor = ConsoleColor.White;
-            int legendStartPosY = map.cameraHeight + 3;
+            int legendStartPosY = map.cameraHeight;
             int legendStartPosX = controlsStartPosX;
             Console.SetCursorPosition(legendStartPosX, legendStartPosY);
             Console.WriteLine(breaker);
@@ -192,6 +221,11 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.WriteLine("D - Dragon");
             Console.SetCursorPosition(legendStartPosX, legendStartPosY + 14);
             Console.WriteLine(breaker);
+
+
+
+
+
 
 
             Console.CursorVisible = !true;

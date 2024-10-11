@@ -48,17 +48,20 @@ namespace FirstPlayable_CalebWolthers_22012024
         public static char goblinChar = 'G';
         public static string goblinName = "Goblin";
         public static int goblinHealth = 150;
+        public static int goblinSouls = 10;
         public static int goblinDamage = 20;
         public static string goblinDir = "down";
         //Orc Settings
         public static char orcChar = 'O';
         public static string orcName = "Orc";
         public static int orcHealth = 200;
+        public static int orcSouls = 60;
         public static int orcDamage = 40;
         //Minotaur Settings
         public static char minotaurChar = '}';
         public static string minotaurName = "Minotaur";
         public static int minotaurHealth = 400;
+        public static int minotaurSouls = 100;
         public static int minotaurDamage = 50;
 
     }

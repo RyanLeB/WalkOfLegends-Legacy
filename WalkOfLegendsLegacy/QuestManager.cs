@@ -25,9 +25,11 @@ namespace FirstPlayable_CalebWolthers_22012024
 
         public QuestManager(Player player)
         {
+            this.player = player;
             slayEnemiesQuest = "Slay 5 enemies";
             earnSouls = "Earn 300 souls";
             winGame = "Slay the Final Boss (Dragon)";
+            questCompleted = "Quest Completed!";
         }
 
 
@@ -38,7 +40,7 @@ namespace FirstPlayable_CalebWolthers_22012024
                 slayEnemiesQuest = questCompleted;
             }
 
-            if (player.soulsEarned == 300)
+            if (player.souls >= 300)
             {
                 earnSouls = questCompleted;
             }

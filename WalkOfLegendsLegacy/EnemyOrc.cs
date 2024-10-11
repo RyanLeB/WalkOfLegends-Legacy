@@ -17,7 +17,7 @@ namespace FirstPlayable_CalebWolthers_22012024
         private Map map;
         public HealthSystem healthSystem;
 
-        public EnemyOrc(Map map, Player player) : base(map, player)
+        public EnemyOrc(Map map, Player player)
         {
             this.map = map;
             this.player = player;
@@ -29,6 +29,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             dir = "down";
             isDead = false;
             healthSystem = new HealthSystem(health);
+            enemyCount += 1;
         }
 
 
@@ -114,13 +115,21 @@ namespace FirstPlayable_CalebWolthers_22012024
             if (isDead == false)
             {
                 player.attack += damage;
+                
+                
             }
+
             health = 0;
             map.map[posY, posX] = '`';
             Char = '`';
             map.DisplayMap();
             isDead = true;
-            //enemyCount--;
+            enemyCount -= 1;
+
+            // new additions
+            player.enemiesKilled += 1;
+            player.souls += Settings.orcSouls;
+
         }
 
 

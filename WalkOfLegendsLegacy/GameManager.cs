@@ -28,9 +28,10 @@ namespace FirstPlayable_CalebWolthers_22012024
             enemyManager = new EnemyManager(player, map);
             gameOver = false;
             map.StartMap();
-            ui = new UI(player, map, enemyManager);
-            ui.LoadStartingScreen();
+
             questManager = new QuestManager(player);
+            ui = new UI(player, map, enemyManager, questManager);
+            ui.LoadStartingScreen();
             itemManager = new ItemManager(player, map, ui);
             player.SetStuff(map, enemyManager, ui, itemManager);
             map.DisplayMap();

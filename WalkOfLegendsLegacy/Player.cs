@@ -30,7 +30,7 @@ namespace FirstPlayable_CalebWolthers_22012024
         // new additions
         public int enemiesKilled;
         public bool dragonDefeated;
-        public int soulsEarned;
+        public int souls;
 
 
         public void SetStuff(Map map, EnemyManager enemyManager, UI ui, ItemManager itemManager)
@@ -41,12 +41,20 @@ namespace FirstPlayable_CalebWolthers_22012024
             this.ui = ui;
             health = Settings.playerHealth;
             healthSystem = new HealthSystem(health);
+
+            enemiesKilled = 0;
             moves = 0;
             attack = Settings.playerAttack;
             playerChar = Settings.playerChar;
             posX = Settings.playerStartPosX;
             posY = Settings.playerStartPosY;
             freezeEnemies = false;
+            
+            // new additions
+            dragonDefeated = false;
+            
+
+
         }
 
 
