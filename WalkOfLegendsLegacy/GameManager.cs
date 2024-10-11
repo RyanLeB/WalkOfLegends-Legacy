@@ -68,7 +68,8 @@ namespace FirstPlayable_CalebWolthers_22012024
                 questManager.UpdateQuest();
                 if(shopDisplayed)
                 {
-                    shopManager.();
+                    map.DisplayShop();
+                    shopManager.ShopDisplay();
                 }
 
 

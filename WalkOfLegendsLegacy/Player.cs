@@ -84,6 +84,11 @@ namespace FirstPlayable_CalebWolthers_22012024
             {
                 Move(1, 0);
             }
+
+            else if (input.Key == ConsoleKey.Spacebar)
+            {
+                gameManager.shopDisplayed = true;
+            }
         }
 
 

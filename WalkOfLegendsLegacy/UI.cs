@@ -183,6 +183,8 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 7);
             Console.WriteLine("ESCAPE - Quit Game");
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 8);
+            Console.WriteLine("SPACE - Shop");
+            Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 9);
             Console.WriteLine(breaker);
 
             // new addition - Souls

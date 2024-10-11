@@ -21,55 +21,50 @@ namespace FirstPlayable_CalebWolthers_22012024
         }
 
 
-        // Player Buffs
+        // Player Buffs 
 
-        public void Buffs()
+        void IncreaseHealth()
         {
-            Console.Clear();
-            Console.WriteLine("Welcome to the Shop!");
-            Console.WriteLine("You have " + player.souls + " souls");
-            Console.WriteLine("1. Health Potion - 50 souls");
-            Console.WriteLine("2. Damage Buff - 100 souls");
-            Console.WriteLine("3. Exit Shop");
-            shopNav = Console.ReadKey();
+            if (player.souls >= 30)
+            {
+                player.healthSystem.Heal(30);
+                player.souls -= 30;
+            }
+        }
+
+        void IncreaseDamage()
+        {
+            if (player.souls >= 100)
+            {
+                player.attack += 20;
+                player.souls -= 100;
+            }
+        }
+
+
+
+
+        // Shop Display
+
+        public void ShopDisplay()
+        {
+
+            shopNav = Console.ReadKey(true);
             switch (shopNav.Key)
             {
                 case ConsoleKey.D1:
-                    if (player.souls >= 50)
-                    {
-                        player.souls -= 50;
-                        player.health += 50;
-                        Console.WriteLine("You have bought a Health Potion!");
-                        Console.WriteLine("You now have " + player.souls + " souls");
-                        Console.WriteLine("You now have " + player.health + " health");
-                        Console.ReadKey();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You do not have enough souls!");
-                        Console.ReadKey();
-                    }
+                    IncreaseHealth();
                     break;
                 case ConsoleKey.D2:
-                    if (player.souls >= 100)
-                    {
-                        player.souls -= 100;
-                        player.attack += 10;
-                        Console.WriteLine("You have bought a Damage Buff!");
-                        Console.WriteLine("You now have " + player.souls + " souls");
-                        Console.WriteLine("You now have " + player.attack + " damage");
-                        Console.ReadKey();
-                    }
-                    else
-                    {
-                        Console.WriteLine("You do not have enough souls!");
-                        Console.ReadKey();
-                    }
+                    IncreaseDamage();
                     break;
-                case ConsoleKey.D3:
+                default:
                     break;
             }
+
         }
+
+
 
 
 
