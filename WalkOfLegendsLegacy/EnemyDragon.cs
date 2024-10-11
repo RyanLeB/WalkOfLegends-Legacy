@@ -148,6 +148,7 @@ namespace FirstPlayable_CalebWolthers_22012024
 
             // new additions 
             player.dragonDefeated = true;
+            GameManager.gameOver = true;
         }
 
 

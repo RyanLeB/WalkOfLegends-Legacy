@@ -42,7 +42,7 @@ namespace FirstPlayable_CalebWolthers_22012024
         //Dragon Settings
         public static char dragonChar = 'D';
         public static string dragonName = "Dragon";
-        public static int dragonHealth = 10000;
+        public static int dragonHealth = 1000;
         public static int dragonDamage = 100;
         //Goblin Settings
         public static char goblinChar = 'G';

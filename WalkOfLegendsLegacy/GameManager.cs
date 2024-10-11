@@ -84,11 +84,17 @@ namespace FirstPlayable_CalebWolthers_22012024
                 map.DrawShop();
                 ui.Draw();
             }
-            if (gameOver == true)
+            if (gameOver == true && !player.dragonDefeated)
             {
                 Console.Clear();
                 Console.WriteLine("Game Over, try again");
             }
+            else if (gameOver == true && player.dragonDefeated)
+            {
+                Console.Clear();
+                Console.WriteLine("Congratulations, you have defeated the dragon and won the game!"); // displayed victory screen
+            }
+
 
         }
 

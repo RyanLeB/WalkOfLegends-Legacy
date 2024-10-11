@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -32,6 +33,8 @@ namespace FirstPlayable_CalebWolthers_22012024
         public int enemiesKilled;
         public bool dragonDefeated;
         public int souls;
+        
+       
 
         private GameManager gameManager;
         public int shopPositionY;
@@ -53,6 +56,8 @@ namespace FirstPlayable_CalebWolthers_22012024
             healthSystem = new HealthSystem(health);
 
             enemiesKilled = 0;
+            
+            
             moves = 0;
             attack = Settings.playerAttack;
             playerChar = Settings.playerChar;
@@ -62,7 +67,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             
             // new additions
             dragonDefeated = false;
-            
+            souls = 0;
 
 
         }
@@ -77,28 +82,30 @@ namespace FirstPlayable_CalebWolthers_22012024
             {
                 Move(0, -1);
                 gameManager.shopDisplayed = false;
+                
 
             }
             else if (input.Key == ConsoleKey.A)
             {
                 Move(-1, 0);
                 gameManager.shopDisplayed = false;
+                
+
             }
             else if (input.Key == ConsoleKey.S)
             {
                 Move(0, 1);
                 gameManager.shopDisplayed = false;
+                
             }
             else if (input.Key == ConsoleKey.D)
             {
                 Move(1, 0);
                 gameManager.shopDisplayed = false;
+                
             }
 
-            else if (input.Key == ConsoleKey.Spacebar)
-            {
-                gameManager.shopDisplayed = true;
-            }
+           
             
         }
 
@@ -195,6 +202,7 @@ namespace FirstPlayable_CalebWolthers_22012024
                         enemy.health += enemy.healthSystem.health;
                         Console.SetCursorPosition(0, map.cameraHeight + 22);
                         ui.UpdateHUD(enemy);
+                        
                     }
                 }
             }

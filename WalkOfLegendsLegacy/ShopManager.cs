@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FirstPlayable_CalebWolthers_22012024
 {
@@ -37,10 +38,13 @@ namespace FirstPlayable_CalebWolthers_22012024
 
         void IncreaseHealth()
         {
-            if (player.souls >= 30)
+
+            const int healthCost = 30;
+            if (player.souls >= healthCost)
             {
                 player.healthSystem.Heal(30);
-                player.souls -= 30;
+                player.souls -= healthCost;
+                
             }
         }
 
@@ -48,10 +52,13 @@ namespace FirstPlayable_CalebWolthers_22012024
 
         void IncreaseDamage()
         {
-            if (player.souls >= 100)
+
+            const int damageCost = 100;
+            if (player.souls >= damageCost)
             {
                 player.attack += 20;
-                player.souls -= 100;
+                player.souls -= damageCost;
+                
             }
         }
 
@@ -59,12 +66,16 @@ namespace FirstPlayable_CalebWolthers_22012024
 
         void Invincibility()
         {
-            if (player.souls >= 60)
+
+            const int invincibilityCost = 60;
+            if (player.souls >= invincibilityCost)
             {
-                player.souls -= 60;
+                player.souls -= invincibilityCost;
+                
                 itemInvincible = new ItemInvincible(map, player, ui);
                 itemInvincible.DoYourJob();
                 itemInvincible = null;
+                
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -183,12 +184,12 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 7);
             Console.WriteLine("ESCAPE - Quit Game");
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 8);
-            Console.WriteLine("SPACE - Shop");
-            Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 9);
+            
             Console.WriteLine(breaker);
 
             // new addition - Souls counter
-            
+
+
             Console.ForegroundColor = ConsoleColor.Magenta;
             int soulsStartPosY = map.cameraHeight - 6;
             int soulsStartPosX = map.cameraWidth + 5;
@@ -196,11 +197,12 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.SetCursorPosition(soulsStartPosX, soulsStartPosY);
             Console.WriteLine(breaker);
             Console.SetCursorPosition(soulsStartPosX, soulsStartPosY + 1);
-            Console.WriteLine("Souls Collected: " + player.souls);
+            Console.WriteLine(string.Format("Souls: " + player.souls));
             Console.SetCursorPosition(soulsStartPosX, soulsStartPosY + 2);
-            
-            
+
+
             Console.WriteLine(breaker);
+
 
 
 
@@ -274,6 +276,7 @@ namespace FirstPlayable_CalebWolthers_22012024
         }
 
 
+        
 
 
     }
