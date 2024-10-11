@@ -137,8 +137,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             {
                 player.attack += damage;
 
-                // new additions 
-                player.enemiesKilled += 1;
+                
             }
             health = 0;
             map.map[posY, posX] = '`';
@@ -147,7 +146,8 @@ namespace FirstPlayable_CalebWolthers_22012024
             isDead = true;
             enemyCount -= 1;
 
-            
+            // new additions 
+            player.dragonDefeated = true;
         }
 
 

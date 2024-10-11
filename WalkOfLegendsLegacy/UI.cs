@@ -142,6 +142,26 @@ namespace FirstPlayable_CalebWolthers_22012024
 
             ShowEnemyHUD(enemy);
 
+            // new additions - Quest Log
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            int questStartPosY = map.cameraHeight + 20;
+            int questStartPosX = map.cameraWidth - 40;
+
+            Console.SetCursorPosition(questStartPosX, questStartPosY);
+            Console.WriteLine(breaker);
+            Console.SetCursorPosition(questStartPosX, questStartPosY + 1);
+            Console.WriteLine("Quest Log:");
+            Console.SetCursorPosition(questStartPosX, questStartPosY + 2);
+            Console.WriteLine("Slay Enemies: " + questManager.slayEnemiesQuest);
+            Console.SetCursorPosition(questStartPosX, questStartPosY + 3);
+            Console.WriteLine("Earn Souls: " + questManager.earnSouls);
+            Console.SetCursorPosition(questStartPosX, questStartPosY + 4);
+            Console.WriteLine(questManager.winGame);
+            Console.SetCursorPosition(questStartPosX, questStartPosY + 5);
+            Console.WriteLine(breaker);
+
+
             //Controls 
             Console.ForegroundColor = ConsoleColor.Red;
             int controlsStartPosY = 0;
@@ -165,25 +185,21 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.SetCursorPosition(controlsStartPosX, controlsStartPosY + 8);
             Console.WriteLine(breaker);
 
+            // new addition - Souls
+            
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            int soulsStartPosY = map.cameraHeight - 6;
+            int soulsStartPosX = map.cameraWidth + 5;
 
-            // new additions - Quest Log
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            int questStartPosY = map.cameraHeight - 6;
-            int questStartPosX = controlsStartPosX;
-
-            Console.SetCursorPosition(questStartPosX, questStartPosY);
+            Console.SetCursorPosition(soulsStartPosX, soulsStartPosY);
             Console.WriteLine(breaker);
-            Console.SetCursorPosition(questStartPosX, questStartPosY + 1);
-            Console.WriteLine("Quest Log:");
-            Console.SetCursorPosition(questStartPosX, questStartPosY + 2);
-            Console.WriteLine("Slay Enemies: " + questManager.slayEnemiesQuest);
-            Console.SetCursorPosition(questStartPosX, questStartPosY + 3);
-            Console.WriteLine("Earn Souls: " + questManager.earnSouls);
-            Console.SetCursorPosition(questStartPosX, questStartPosY + 4);
-            Console.WriteLine(questManager.winGame);
-            Console.SetCursorPosition(questStartPosX, questStartPosY + 5);
+            Console.SetCursorPosition(soulsStartPosX, soulsStartPosY + 1);
+            Console.WriteLine("Souls Collected: " + player.souls);
+            Console.SetCursorPosition(soulsStartPosX, soulsStartPosY + 2);
+            
+            
             Console.WriteLine(breaker);
+
 
 
 
@@ -223,7 +239,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.WriteLine(breaker);
 
 
-
+            
 
 
 

@@ -114,7 +114,7 @@ namespace FirstPlayable_CalebWolthers_22012024
 
             // new additions
             player.enemiesKilled += 1;
-            player.souls += Settings.orcSouls;
+            player.souls += Settings.goblinSouls;
 
         }
 
