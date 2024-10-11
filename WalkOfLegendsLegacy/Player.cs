@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FirstPlayable_CalebWolthers_22012024
 {
@@ -33,7 +34,8 @@ namespace FirstPlayable_CalebWolthers_22012024
         public int souls;
 
         private GameManager gameManager;
-
+        public int shopPositionY;
+        public int shopPositionX;
 
         public Player(GameManager gameManager)
         {
@@ -68,27 +70,36 @@ namespace FirstPlayable_CalebWolthers_22012024
 
         public void Update(ConsoleKeyInfo input)
         {
+            // checks for shop
+            CheckShop();
+            
             if (input.Key == ConsoleKey.W)
             {
                 Move(0, -1);
+                gameManager.shopDisplayed = false;
+
             }
             else if (input.Key == ConsoleKey.A)
             {
                 Move(-1, 0);
+                gameManager.shopDisplayed = false;
             }
             else if (input.Key == ConsoleKey.S)
             {
                 Move(0, 1);
+                gameManager.shopDisplayed = false;
             }
             else if (input.Key == ConsoleKey.D)
             {
                 Move(1, 0);
+                gameManager.shopDisplayed = false;
             }
 
             else if (input.Key == ConsoleKey.Spacebar)
             {
                 gameManager.shopDisplayed = true;
             }
+            
         }
 
 
@@ -115,6 +126,11 @@ namespace FirstPlayable_CalebWolthers_22012024
         {
             map.map[lastPosY, lastPosX] = '`';
 
+            if (shopPositionX != posX || shopPositionY != posY)
+            {
+                map.map[shopPositionY, shopPositionX] = '&';
+            }
+            
             map.map[posY, posX] = playerChar;
         }
 
@@ -151,6 +167,17 @@ namespace FirstPlayable_CalebWolthers_22012024
                 CheckForEnemies();
                 CheckForItems();
 
+            }
+        }
+
+        public void CheckShop()
+        {
+            if (map.map[posY, posX] == '&')
+            {
+
+                shopPositionY = posY; shopPositionX = posX;
+                
+                gameManager.shopDisplayed = true;
             }
         }
 

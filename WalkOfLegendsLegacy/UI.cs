@@ -237,7 +237,8 @@ namespace FirstPlayable_CalebWolthers_22012024
             Console.WriteLine("{ - Minotaur");
             Console.SetCursorPosition(legendStartPosX, legendStartPosY + 12);
             Console.WriteLine("D - Dragon");
-            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 14);
+            Console.SetCursorPosition(legendStartPosX, legendStartPosY + 13);
+            Console.WriteLine("& - Mystery???");
             Console.WriteLine(breaker);
 
 

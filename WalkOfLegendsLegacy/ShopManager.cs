@@ -14,10 +14,19 @@ namespace FirstPlayable_CalebWolthers_22012024
         // Player class
         private Player player;
 
+        // Item class
+        private ItemInvincible itemInvincible;
 
-        public ShopManager(Player player)
+        // Map and UI class
+        private Map map;
+        private UI ui;
+
+
+        public ShopManager(Player player, Map map, UI ui)
         {
             this.player = player;
+            this.map = map;
+            this.ui = ui;
         }
 
 
@@ -41,7 +50,16 @@ namespace FirstPlayable_CalebWolthers_22012024
             }
         }
 
-
+        void Invincibility()
+        {
+            if (player.souls >= 60)
+            {
+                player.souls -= 60;
+                itemInvincible = new ItemInvincible(map, player, ui);
+                itemInvincible.DoYourJob();
+                itemInvincible = null;
+            }
+        }
 
 
         // Shop Display
@@ -57,6 +75,9 @@ namespace FirstPlayable_CalebWolthers_22012024
                     break;
                 case ConsoleKey.D2:
                     IncreaseDamage();
+                    break;
+                case ConsoleKey.D3:
+                    Invincibility();
                     break;
                 default:
                     break;

@@ -26,7 +26,7 @@ namespace FirstPlayable_CalebWolthers_22012024
         {
             //Init
             player = new Player(this);
-            map = new Map(player);
+            map = new Map(player, this);
             enemyManager = new EnemyManager(player, map);
             gameOver = false;
             map.StartMap();
@@ -36,7 +36,8 @@ namespace FirstPlayable_CalebWolthers_22012024
             ui.LoadStartingScreen();
             itemManager = new ItemManager(player, map, ui);
             player.SetStuff(map, enemyManager, ui, itemManager);
-            shopManager = new ShopManager(player);
+            shopManager = new ShopManager(player, map, ui);
+            map.LocateShop(shopManager);
             map.DisplayMap();
             shopDisplayed = false;
 
@@ -62,6 +63,7 @@ namespace FirstPlayable_CalebWolthers_22012024
                 //Update
                 itemManager.UpdateItems();
                 player.Update(input);
+                player.CheckShop();
                 enemyManager.UpdateEnemies();
 
                 // new additions
@@ -79,6 +81,7 @@ namespace FirstPlayable_CalebWolthers_22012024
                 enemyManager.DrawEnemies();
                 player.Draw();
                 map.DisplayMap();
+                map.DrawShop();
                 ui.Draw();
             }
             if (gameOver == true)

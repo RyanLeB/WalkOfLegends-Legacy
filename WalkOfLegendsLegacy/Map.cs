@@ -23,14 +23,35 @@ namespace FirstPlayable_CalebWolthers_22012024
         // new additions
         static string[] shopFile;
         public char[,] shop;
+        private ShopManager shopManager;
+        private GameManager gameManager;
 
 
-        public Map(Player player)
+
+        public Map(Player player, GameManager gameManager)
         {
             this.player = player;
+            this.gameManager = gameManager;
         }
 
-        public void StartMap()
+        public void LocateShop(ShopManager shopManager)
+        {
+            this.shopManager = shopManager;
+        }
+
+        public void DrawShop()
+        {
+            if (gameManager.shopDisplayed)
+            {
+                DisplayShop();
+                shopManager.ShopDisplay();
+            }
+            else
+            {
+                DisplayMap();
+            }
+        }        
+            public void StartMap()
         {
             mapFile = File.ReadAllLines(@"Map1.txt");
 
@@ -208,6 +229,7 @@ namespace FirstPlayable_CalebWolthers_22012024
                 case 'O': return ConsoleColor.DarkYellow;
                 case '^': return ConsoleColor.DarkGray;
                 case '@': return ConsoleColor.Blue;
+                case '&': return ConsoleColor.Magenta;
                 default: return ConsoleColor.White; 
             }
         }
