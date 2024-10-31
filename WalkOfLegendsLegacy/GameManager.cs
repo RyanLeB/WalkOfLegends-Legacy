@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace FirstPlayable_CalebWolthers_22012024
 {
     internal class GameManager
@@ -22,9 +23,13 @@ namespace FirstPlayable_CalebWolthers_22012024
         private ShopManager shopManager;
         public bool shopDisplayed;
 
+        private const string SettingsFilePath = "settings.json";
+
+
         public void Play()
         {
             //Init
+            Settings.LoadSettings(SettingsFilePath);
             player = new Player(this);
             map = new Map(player, this);
             enemyManager = new EnemyManager(player, map);
@@ -39,6 +44,7 @@ namespace FirstPlayable_CalebWolthers_22012024
             shopManager = new ShopManager(player, map, ui);
             map.LocateShop(shopManager);
             map.DisplayMap();
+            
             shopDisplayed = false;
 
             enemyManager.PlaceGoblins(5);
@@ -86,11 +92,13 @@ namespace FirstPlayable_CalebWolthers_22012024
             }
             if (gameOver == true && !player.dragonDefeated)
             {
+                
                 Console.Clear();
                 Console.WriteLine("Game Over, try again");
             }
             else if (gameOver == true && player.dragonDefeated)
             {
+                Settings.SaveSettings(SettingsFilePath);
                 Console.Clear();
                 Console.WriteLine("Congratulations, you have defeated the dragon and beat the game!"); // displayed victory screen
             }
