@@ -13,52 +13,61 @@ namespace FirstPlayable_CalebWolthers_22012024
     internal class Settings
     {
 
-        //---------------
-        //Camera Settings
-        //---------------
+        // ---- General Settings ----
+
+        // ---- Map Settings ----
         public static int cameraWidth = 40;
         public static int cameraHeight = 15;
-        //---------------
-        //Player Settings
-        //---------------
+        
+        // ---- Player Settings ----
+        
         public static char playerChar = 'P';
         public static int playerHealth = 500;
         public static int playerAttack = 100;
         public static int playerStartPosX = 4;
         public static int playerStartPosY = 20;
         
+        // ---- Item Settings ----
         
-        //Health Potion Settings
+        
+        // ---- Health Potion Settings ----
         public static char healthPotionChar = '@';
         public static string healthPotionName = "Health Potion";
         public static int healthPotionHealAmount = 30;
-        //Invincibility Settings
+        // ---- Invincibility Settings ----
         public static char invincibilityChar = '!';
         public static string invincibilityName = "Invincibility";
         public static int invincibilityEffectTime = 4000;
+        // ---- Freeze Settings ----
+        public static char freezeChar = '*';
+        public static string freezeName = "Freeze";
+        public static int freezeEffectTime = 4000;
         
-        //--------------
-        //Enemy Settings
-        //--------------
-        //Dragon Settings
+        
+        // ---- Enemy Settings ----
+        
+        // ---- Dragon Setting ----
         public static char dragonChar = 'D';
         public static string dragonName = "Dragon";
         public static int dragonHealth = 10000;
         public static int dragonDamage = 100;
-        //Goblin Settings
+        
+        // ---- Goblin Settings ----
         public static char goblinChar = 'G';
         public static string goblinName = "Goblin";
         public static int goblinHealth = 150;
         public static int goblinDamage = 20;
         public static int goblinSouls = 25;
         public static string goblinDir = "down";
-        //Orc Settings
+        
+        // ----Orc Settings ----
         public static char orcChar = 'O';
         public static string orcName = "Orc";
         public static int orcHealth = 200;
         public static int orcDamage = 40;
         public static int orcSouls = 50;
-        //Minotaur Settings
+        
+        // ----Minotaur Settings ----
         public static char minotaurChar = '}';
         public static string minotaurName = "Minotaur";
         public static int minotaurHealth = 400;
