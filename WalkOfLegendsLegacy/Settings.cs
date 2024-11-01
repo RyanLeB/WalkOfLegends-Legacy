@@ -26,15 +26,8 @@ namespace FirstPlayable_CalebWolthers_22012024
         public static int playerAttack = 100;
         public static int playerStartPosX = 4;
         public static int playerStartPosY = 20;
-        //-------------
-        //Item Settings
-        //-------------
-        //Shop settings
-        public static int shopDamageCost = 50;
-        public static int shopHealthCost = 25;
-        public static int freezeCost = 30;
-        public static int shopDamageValue = 50;
-        public static int shopHealthValue = 30;
+        
+        
         //Health Potion Settings
         public static char healthPotionChar = '@';
         public static string healthPotionName = "Health Potion";
@@ -43,10 +36,7 @@ namespace FirstPlayable_CalebWolthers_22012024
         public static char invincibilityChar = '!';
         public static string invincibilityName = "Invincibility";
         public static int invincibilityEffectTime = 4000;
-        //Freeze Settings
-        public static char freezeChar = '*';
-        public static string freezeName = "Freeze";
-        public static int freezeEffectTime = 4000;
+        
         //--------------
         //Enemy Settings
         //--------------
